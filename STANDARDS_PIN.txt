@@ -1,0 +1,11 @@
+Enterprise Agent Platform Standards Snapshot
+
+Source repository: miladghasemidev/agent-platform-standards
+Pinned commit: 807f359a6fe60c4094b9b77b0526a534331d6f29
+Snapshot path: agent-platform-standards/
+Snapshot file count: 48
+Assembled for: Jira MCP On-Premises
+Assembled date: 2026-09-08
+
+This vendored directory is an immutable project input for this handoff package.
+Do not modify it during Jira MCP implementation. Update it only through a separately reviewed standards-version change.

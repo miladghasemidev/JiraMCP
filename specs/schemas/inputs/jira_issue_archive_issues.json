@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jira-mcp.invalid/schemas/input/jira_issue_archive_issues.1.0.0.json",
+  "title": "Input for jira_issue_archive_issues",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "environment",
+    "target_id",
+    "trace_id",
+    "idempotency_key",
+    "body",
+    "approval_ref"
+  ],
+  "properties": {
+    "environment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "test",
+        "production"
+      ]
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{8,128}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "notify_users": {
+      "type": "boolean"
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{8,128}$"
+    },
+    "precondition": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "body": {
+      "type": "object",
+      "maxProperties": 128,
+      "properties": {},
+      "required": [],
+      "additionalProperties": true,
+      "description": "Jira operation payload. Runtime validation also enforces depth, key, scalar and byte limits; extension fields remain allowed for Jira custom-field compatibility."
+    },
+    "approval_ref": {
+      "type": "string",
+      "pattern": "^approval:[A-Za-z0-9._:-]{8,128}$"
+    }
+  }
+}

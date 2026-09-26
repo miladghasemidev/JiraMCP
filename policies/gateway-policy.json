@@ -1,0 +1,46 @@
+{
+  "policy_version": "1.0.0",
+  "default_effect": "deny",
+  "deny_overrides": true,
+  "require_registered_active_component": true,
+  "require_exact_environment_and_target": true,
+  "production_default": null,
+  "risk": {
+    "R1": {"permission_required": true, "audit": true},
+    "R2": {"permission_required": true, "elevated_read": true, "audit": true},
+    "W1": {"permission_required": true, "policy_preapproval_required": true, "idempotency_required": true},
+    "W2": {"permission_required": true, "formal_human_approval_required": true, "idempotency_required": true, "verification_required": true},
+    "W3": {"default_effect": "deny", "exceptional_break_glass_required": true, "formal_human_approval_required": true, "idempotency_required": true, "verification_required": true}
+  },
+  "approval_bind_fields": [
+    "capability_id",
+    "contract_version",
+    "requester_id",
+    "tenant_id",
+    "environment",
+    "target_id",
+    "jira_version",
+    "normalized_parameters",
+    "expected_side_effects"
+  ],
+  "limits": {
+    "calls_per_capability_per_workflow": 1,
+    "concurrent_calls": 8,
+    "max_inline_bytes": 65536,
+    "max_inline_records": 100,
+    "max_seconds_per_call": 20
+  },
+  "prohibited_argument_fields": [
+    "authorization",
+    "base_url",
+    "connection_string",
+    "cookie",
+    "credentials",
+    "password",
+    "private_key",
+    "secret",
+    "token",
+    "url"
+  ]
+}
+

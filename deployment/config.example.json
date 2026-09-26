@@ -1,0 +1,32 @@
+{
+  "environment": null,
+  "targets": [
+    {
+      "target_id": "jira-test",
+      "environment": "test",
+      "base_url": "https://jira-test.example.invalid/jira/",
+      "jira_version": "9.12.0",
+      "secret_ref": "secret-broker://jira/test/service-account",
+      "enabled": false,
+      "tls_verify": true,
+      "tenant_ids": ["tenant-test"]
+    }
+  ],
+  "limits": {
+    "max_request_bytes": 1048576,
+    "max_attachment_bytes": 6291456,
+    "max_response_bytes": 5242880,
+    "max_inline_bytes": 65536,
+    "max_inline_records": 100,
+    "max_projection_records": 20,
+    "timeout_seconds": 20.0,
+    "connect_timeout_seconds": 5.0,
+    "max_read_retries": 2,
+    "max_concurrency": 8,
+    "max_concurrency_per_target": 4
+  },
+  "production_gateway_required": true,
+  "production_result_store_required": true,
+  "production_audit_sink_required": true,
+  "production_metrics_sink_required": true
+}

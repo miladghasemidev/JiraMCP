@@ -1,0 +1,45 @@
+project:
+  id: jira-mcp-on-prem
+  domain: jira
+  deployment_model: on-premises
+
+scope:
+  authoritative_source_pattern: "project-inputs/APPROVED_JIRA_CAPABILITY_MATRIX.*"
+  approved_tool_count: 114
+  locked: true
+  allowed_scope_changes_without_new_approval: false
+  prohibited_actions:
+    - add_unapproved_tool
+    - remove_approved_tool
+    - merge_approved_tools
+    - split_approved_tool
+    - silently_substitute_tool
+  impossible_capability_status: BLOCKED_ARCHITECTURE_REVIEW
+
+standards:
+  repository: "miladghasemidev/agent-platform-standards"
+  commit: "807f359a6fe60c4094b9b77b0526a534331d6f29"
+  vendored_path: "agent-platform-standards"
+  controls: implementation_and_conformance
+
+precedence:
+  capability_scope: approved_jira_capability_matrix
+  implementation_method: agent_platform_standards
+  safety_and_security: agent_platform_standards_and_accepted_project_adrs
+  conflict_behavior: stop_and_record_architecture_review
+
+implementation:
+  default_language_if_repository_is_empty: python
+  minimum_python_version: "3.12"
+  production_mutations_during_development: false
+  large_results: result_store_or_bounded_projection
+  protected_calls: gateway_controlled
+  secrets: external_broker_only
+
+completion:
+  required_accounted_capabilities: 114
+  allowed_final_statuses:
+    - IMPLEMENTED
+    - BLOCKED_ARCHITECTURE_REVIEW
+  release_requires_zero_unapproved_extra_tools: true
+  release_requires_zero_silently_missing_tools: true

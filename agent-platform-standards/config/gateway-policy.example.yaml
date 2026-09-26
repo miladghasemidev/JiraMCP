@@ -1,0 +1,67 @@
+policy_version: "1.0.0"
+default_effect: "deny"
+deny_overrides: true
+
+registry_enforcement:
+  require_registered_component: true
+  require_approved_active_version: true
+  deny_statuses: ["draft", "review", "unmanaged", "disabled", "retired"]
+  require_owner: true
+  require_current_evaluation: true
+  emit_observed_relationships: true
+
+environments:
+  require_explicit_target: true
+  production_aliases: ["production", "prod"]
+  default_environment: null
+
+principals:
+  groups:
+    database_diagnostics:
+      allow:
+        - capability: "sqlserver.get_blocking_context"
+          versions: [">=1.0.0 <2.0.0"]
+          environments: ["test", "production"]
+          targets: ["registered-sqlserver-instances"]
+          limits:
+            calls_per_workflow: 8
+            max_inline_bytes: 65536
+            max_seconds_per_call: 15
+      deny:
+        - risk_classes: ["W1", "W2", "W3"]
+
+approval_classes:
+  material_change:
+    applies_to: ["W2"]
+    human_approval_required: true
+    requester_may_approve: false
+    max_validity_minutes: 30
+    max_uses: 1
+    bind_fields:
+      - "capability_id"
+      - "contract_version"
+      - "environment"
+      - "target"
+      - "normalized_parameters"
+      - "expected_side_effects"
+  destructive_change:
+    applies_to: ["W3"]
+    default_effect: "deny"
+    exceptional_process_reference: "SECURITY_AND_APPROVAL_MODEL.md#break-glass-access"
+
+result_store:
+  max_inline_bytes: 65536
+  default_ttl_minutes: 60
+  require_authorization_on_every_access: true
+  allow_public_references: false
+
+telemetry:
+  record_policy_decisions: true
+  record_sensitive_reads: true
+  record_payloads: false
+  redact_fields:
+    - "authorization"
+    - "credentials"
+    - "connection_string"
+    - "password"
+    - "token"

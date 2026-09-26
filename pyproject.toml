@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jira-mcp-on-prem"
+version = "1.0.0"
+description = "Policy-controlled MCP server for the exact approved Jira on-premises capability inventory."
+requires-python = ">=3.12"
+dependencies = [
+  "httpx==0.28.1",
+  "jsonschema==4.26.0",
+  "mcp==2.2.0",
+  "pydantic==2.13.5",
+]
+
+[project.optional-dependencies]
+dev = [
+  "mypy==2.3.1",
+  "openpyxl==3.1.5",
+  "pytest==9.1.1",
+  "pytest-asyncio==1.4.0",
+  "respx==0.23.1",
+  "ruff==0.16.7",
+  "types-jsonschema==4.26.0.20260518",
+]
+
+[project.scripts]
+jira-mcp-on-prem = "jira_mcp.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra --strict-config --strict-markers"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 160
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "S", "SIM", "RUF"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/jira_mcp/errors.py" = ["S105"]
+"tests/*.py" = ["S105", "S106"]
+"tools/generate_specs.py" = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["jira_mcp"]

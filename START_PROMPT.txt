@@ -1,0 +1,1 @@
+Read IMPLEMENT.md and execute it end-to-end. Continue autonomously through specification, implementation, testing, independent conformance review, fixes, and final release audit. Do not stop at planning. Follow AGENTS.md exactly.

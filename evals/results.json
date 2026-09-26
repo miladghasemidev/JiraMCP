@@ -1,0 +1,1213 @@
+{
+  "suite_id": "evaluation.jira_mcp_release",
+  "suite_version": "1.0.0",
+  "executed_at": "2026-09-13T15:49:53.011623+00:00",
+  "runner": "deterministic contract and safety-fixture evaluator",
+  "scope_note": "This evaluates dataset/schema/selection/authorization/approval/provenance invariants. Runtime behavior is covered by the pytest component and MCP protocol suite; no live Jira mutation is performed.",
+  "summary": {
+    "total": 170,
+    "passed": 170,
+    "failed": 0,
+    "pass_rate": 1.0,
+    "hard_failures": 0,
+    "categories": {
+      "adversarial": 20,
+      "difficult": 30,
+      "easy": 50,
+      "normal": 50,
+      "permission_safety": 20
+    }
+  },
+  "results": [
+    {
+      "case_id": "JIRA-EVAL-001",
+      "category": "easy",
+      "capability_id": "jira_agile_create_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-002",
+      "category": "easy",
+      "capability_id": "jira_agile_create_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-003",
+      "category": "easy",
+      "capability_id": "jira_agile_delete_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-004",
+      "category": "easy",
+      "capability_id": "jira_agile_delete_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-005",
+      "category": "easy",
+      "capability_id": "jira_agile_estimate_issue_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-006",
+      "category": "easy",
+      "capability_id": "jira_agile_get_all_boards",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-007",
+      "category": "easy",
+      "capability_id": "jira_agile_get_all_sprints_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-008",
+      "category": "easy",
+      "capability_id": "jira_agile_get_all_versions_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-009",
+      "category": "easy",
+      "capability_id": "jira_agile_get_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-010",
+      "category": "easy",
+      "capability_id": "jira_agile_get_configuration",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-011",
+      "category": "easy",
+      "capability_id": "jira_agile_get_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-012",
+      "category": "easy",
+      "capability_id": "jira_agile_get_epics",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-013",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issue_agile",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-014",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issue_estimation_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-015",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_for_backlog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-016",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-017",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_for_board_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-018",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_for_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-019",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_for_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-020",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_for_sprint_on_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-021",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_without_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-022",
+      "category": "easy",
+      "capability_id": "jira_agile_get_issues_without_epic_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-023",
+      "category": "easy",
+      "capability_id": "jira_agile_get_projects_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-024",
+      "category": "easy",
+      "capability_id": "jira_agile_get_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-025",
+      "category": "easy",
+      "capability_id": "jira_agile_move_issues_to_backlog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-026",
+      "category": "easy",
+      "capability_id": "jira_agile_move_issues_to_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-027",
+      "category": "easy",
+      "capability_id": "jira_agile_move_issues_to_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-028",
+      "category": "easy",
+      "capability_id": "jira_agile_partially_update_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-029",
+      "category": "easy",
+      "capability_id": "jira_agile_partially_update_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-030",
+      "category": "easy",
+      "capability_id": "jira_agile_rank_epics",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-031",
+      "category": "easy",
+      "capability_id": "jira_agile_rank_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-032",
+      "category": "easy",
+      "capability_id": "jira_agile_remove_issues_from_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-033",
+      "category": "easy",
+      "capability_id": "jira_agile_swap_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-034",
+      "category": "easy",
+      "capability_id": "jira_agile_update_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-035",
+      "category": "easy",
+      "capability_id": "jira_issue_add_attachment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-036",
+      "category": "easy",
+      "capability_id": "jira_issue_add_comment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-037",
+      "category": "easy",
+      "capability_id": "jira_issue_add_vote",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-038",
+      "category": "easy",
+      "capability_id": "jira_issue_add_watcher",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-039",
+      "category": "easy",
+      "capability_id": "jira_issue_add_worklog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-040",
+      "category": "easy",
+      "capability_id": "jira_issue_archive_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-041",
+      "category": "easy",
+      "capability_id": "jira_issue_archive_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-042",
+      "category": "easy",
+      "capability_id": "jira_issue_assign",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-043",
+      "category": "easy",
+      "capability_id": "jira_issue_can_move_sub_task",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-044",
+      "category": "easy",
+      "capability_id": "jira_issue_create_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-045",
+      "category": "easy",
+      "capability_id": "jira_issue_create_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-046",
+      "category": "easy",
+      "capability_id": "jira_issue_create_or_update_remote_issue_link",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-047",
+      "category": "easy",
+      "capability_id": "jira_issue_delete_comment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-048",
+      "category": "easy",
+      "capability_id": "jira_issue_delete_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-049",
+      "category": "easy",
+      "capability_id": "jira_issue_delete_property",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-050",
+      "category": "easy",
+      "capability_id": "jira_issue_delete_remote_issue_link_by_global_id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-051",
+      "category": "normal",
+      "capability_id": "jira_issue_delete_remote_issue_link_by_id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-052",
+      "category": "normal",
+      "capability_id": "jira_issue_delete_worklog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-053",
+      "category": "normal",
+      "capability_id": "jira_issue_do_transition",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-054",
+      "category": "normal",
+      "capability_id": "jira_issue_edit_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-055",
+      "category": "normal",
+      "capability_id": "jira_issue_get_comment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-056",
+      "category": "normal",
+      "capability_id": "jira_issue_get_comments",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-057",
+      "category": "normal",
+      "capability_id": "jira_issue_get_create_issue_meta_fields",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-058",
+      "category": "normal",
+      "capability_id": "jira_issue_get_create_issue_meta_project_issue_types",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-059",
+      "category": "normal",
+      "capability_id": "jira_issue_get_edit_issue_meta",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-060",
+      "category": "normal",
+      "capability_id": "jira_issue_get_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-061",
+      "category": "normal",
+      "capability_id": "jira_issue_get_issue_picker_resource",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-062",
+      "category": "normal",
+      "capability_id": "jira_issue_get_issue_watchers",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-063",
+      "category": "normal",
+      "capability_id": "jira_issue_get_issue_worklog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-064",
+      "category": "normal",
+      "capability_id": "jira_issue_get_properties_keys",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-065",
+      "category": "normal",
+      "capability_id": "jira_issue_get_property",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-066",
+      "category": "normal",
+      "capability_id": "jira_issue_get_remote_issue_link_by_id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-067",
+      "category": "normal",
+      "capability_id": "jira_issue_get_remote_issue_links",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-068",
+      "category": "normal",
+      "capability_id": "jira_issue_get_sub_tasks",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-069",
+      "category": "normal",
+      "capability_id": "jira_issue_get_transitions",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-070",
+      "category": "normal",
+      "capability_id": "jira_issue_get_votes",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-071",
+      "category": "normal",
+      "capability_id": "jira_issue_get_worklog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-072",
+      "category": "normal",
+      "capability_id": "jira_issue_move_sub_tasks",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-073",
+      "category": "normal",
+      "capability_id": "jira_issue_notify",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-074",
+      "category": "normal",
+      "capability_id": "jira_issue_remove_vote",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-075",
+      "category": "normal",
+      "capability_id": "jira_issue_remove_watcher",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-076",
+      "category": "normal",
+      "capability_id": "jira_issue_restore_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-077",
+      "category": "normal",
+      "capability_id": "jira_issue_set_property",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-078",
+      "category": "normal",
+      "capability_id": "jira_issue_update_comment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-079",
+      "category": "normal",
+      "capability_id": "jira_issue_update_remote_issue_link",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-080",
+      "category": "normal",
+      "capability_id": "jira_issue_update_worklog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-081",
+      "category": "normal",
+      "capability_id": "jira_project_archive_project",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-082",
+      "category": "normal",
+      "capability_id": "jira_project_create_project",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-083",
+      "category": "normal",
+      "capability_id": "jira_project_delete_project",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-084",
+      "category": "normal",
+      "capability_id": "jira_project_get_accessible_project_type_by_key",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-085",
+      "category": "normal",
+      "capability_id": "jira_project_get_all_project_types",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-086",
+      "category": "normal",
+      "capability_id": "jira_project_get_all_projects",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-087",
+      "category": "normal",
+      "capability_id": "jira_project_get_all_statuses",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-088",
+      "category": "normal",
+      "capability_id": "jira_project_get_project",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-089",
+      "category": "normal",
+      "capability_id": "jira_project_get_project_components",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-090",
+      "category": "normal",
+      "capability_id": "jira_project_get_project_role",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-091",
+      "category": "normal",
+      "capability_id": "jira_project_get_project_roles",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-092",
+      "category": "normal",
+      "capability_id": "jira_project_get_project_type_by_key",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-093",
+      "category": "normal",
+      "capability_id": "jira_project_get_project_versions",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-094",
+      "category": "normal",
+      "capability_id": "jira_project_get_project_versions_paginated",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-095",
+      "category": "normal",
+      "capability_id": "jira_project_get_security_levels_for_project",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-096",
+      "category": "normal",
+      "capability_id": "jira_project_restore_project",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-097",
+      "category": "normal",
+      "capability_id": "jira_project_update_project",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-098",
+      "category": "normal",
+      "capability_id": "jira_version_create_or_update_remote_version_link_post_remotelink",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-099",
+      "category": "normal",
+      "capability_id": "jira_version_create_or_update_remote_version_link_post_remotelink_2",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-100",
+      "category": "normal",
+      "capability_id": "jira_version_create_version",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-101",
+      "category": "difficult",
+      "capability_id": "jira_version_delete_delete_version",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-102",
+      "category": "difficult",
+      "capability_id": "jira_version_delete_post_remove_and_swap",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-103",
+      "category": "difficult",
+      "capability_id": "jira_version_delete_remote_version_link",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-104",
+      "category": "difficult",
+      "capability_id": "jira_version_delete_remote_version_links_by_version_id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-105",
+      "category": "difficult",
+      "capability_id": "jira_version_get_paginated_versions",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-106",
+      "category": "difficult",
+      "capability_id": "jira_version_get_remote_version_link",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-107",
+      "category": "difficult",
+      "capability_id": "jira_version_get_remote_version_links",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-108",
+      "category": "difficult",
+      "capability_id": "jira_version_get_remote_version_links_by_version_id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-109",
+      "category": "difficult",
+      "capability_id": "jira_version_get_version",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-110",
+      "category": "difficult",
+      "capability_id": "jira_version_get_version_related_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-111",
+      "category": "difficult",
+      "capability_id": "jira_version_get_version_unresolved_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-112",
+      "category": "difficult",
+      "capability_id": "jira_version_merge",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-113",
+      "category": "difficult",
+      "capability_id": "jira_version_move_version",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-114",
+      "category": "difficult",
+      "capability_id": "jira_version_update_version",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-115",
+      "category": "difficult",
+      "capability_id": "jira_agile_create_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-116",
+      "category": "difficult",
+      "capability_id": "jira_agile_create_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-117",
+      "category": "difficult",
+      "capability_id": "jira_agile_delete_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-118",
+      "category": "difficult",
+      "capability_id": "jira_agile_delete_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-119",
+      "category": "difficult",
+      "capability_id": "jira_agile_estimate_issue_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-120",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_all_boards",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-121",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_all_sprints_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-122",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_all_versions_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-123",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-124",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_configuration",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-125",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-126",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_epics",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-127",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_issue_agile",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-128",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_issue_estimation_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-129",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_issues_for_backlog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-130",
+      "category": "difficult",
+      "capability_id": "jira_agile_get_issues_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-131",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_issues_for_board_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-132",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_issues_for_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-133",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_issues_for_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-134",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_issues_for_sprint_on_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-135",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_issues_without_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-136",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_issues_without_epic_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-137",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_projects_for_board",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-138",
+      "category": "adversarial",
+      "capability_id": "jira_agile_get_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-139",
+      "category": "adversarial",
+      "capability_id": "jira_agile_move_issues_to_backlog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-140",
+      "category": "adversarial",
+      "capability_id": "jira_agile_move_issues_to_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-141",
+      "category": "adversarial",
+      "capability_id": "jira_agile_move_issues_to_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-142",
+      "category": "adversarial",
+      "capability_id": "jira_agile_partially_update_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-143",
+      "category": "adversarial",
+      "capability_id": "jira_agile_partially_update_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-144",
+      "category": "adversarial",
+      "capability_id": "jira_agile_rank_epics",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-145",
+      "category": "adversarial",
+      "capability_id": "jira_agile_rank_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-146",
+      "category": "adversarial",
+      "capability_id": "jira_agile_remove_issues_from_epic",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-147",
+      "category": "adversarial",
+      "capability_id": "jira_agile_swap_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-148",
+      "category": "adversarial",
+      "capability_id": "jira_agile_update_sprint",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-149",
+      "category": "adversarial",
+      "capability_id": "jira_issue_add_attachment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-150",
+      "category": "adversarial",
+      "capability_id": "jira_issue_add_comment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-151",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_add_vote",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-152",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_add_watcher",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-153",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_add_worklog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-154",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_archive_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-155",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_archive_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-156",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_assign",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-157",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_can_move_sub_task",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-158",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_create_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-159",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_create_issues",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-160",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_create_or_update_remote_issue_link",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-161",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_delete_comment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-162",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_delete_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-163",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_delete_property",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-164",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_delete_remote_issue_link_by_global_id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-165",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_delete_remote_issue_link_by_id",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-166",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_delete_worklog",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-167",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_do_transition",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-168",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_edit_issue",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-169",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_get_comment",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "case_id": "JIRA-EVAL-170",
+      "category": "permission_safety",
+      "capability_id": "jira_issue_get_comments",
+      "passed": true,
+      "failures": []
+    }
+  ]
+}

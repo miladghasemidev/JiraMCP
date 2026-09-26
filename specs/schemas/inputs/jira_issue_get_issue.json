@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jira-mcp.invalid/schemas/input/jira_issue_get_issue.1.0.0.json",
+  "title": "Input for jira_issue_get_issue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "environment",
+    "target_id",
+    "trace_id",
+    "issue_id_or_key"
+  ],
+  "properties": {
+    "environment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "test",
+        "production"
+      ]
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{8,128}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "issue_id_or_key": {
+      "type": [
+        "string",
+        "integer"
+      ],
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "fields": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "expand": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "properties": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "update_history": {
+      "type": "boolean"
+    }
+  }
+}

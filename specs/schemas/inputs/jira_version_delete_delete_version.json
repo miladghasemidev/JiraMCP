@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jira-mcp.invalid/schemas/input/jira_version_delete_delete_version.1.0.0.json",
+  "title": "Input for jira_version_delete_delete_version",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "environment",
+    "target_id",
+    "trace_id",
+    "id",
+    "idempotency_key",
+    "approval_ref",
+    "break_glass_ref",
+    "confirm_irreversible"
+  ],
+  "properties": {
+    "environment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "test",
+        "production"
+      ]
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{8,128}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "id": {
+      "type": [
+        "string",
+        "integer"
+      ],
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "move_fix_issues_to": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "move_affected_issues_to": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "idempotency_key": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{8,128}$"
+    },
+    "precondition": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 512
+    },
+    "approval_ref": {
+      "type": "string",
+      "pattern": "^approval:[A-Za-z0-9._:-]{8,128}$"
+    },
+    "break_glass_ref": {
+      "type": "string",
+      "pattern": "^break-glass:[A-Za-z0-9._:-]{8,128}$"
+    },
+    "confirm_irreversible": {
+      "const": true
+    }
+  }
+}

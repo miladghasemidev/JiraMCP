@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/approval-request.schema.json",
+  "title": "Protected Action Approval",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "approval_id",
+    "requester_id",
+    "approver_id",
+    "capability_id",
+    "contract_version",
+    "environment",
+    "target",
+    "normalized_parameters",
+    "expected_side_effects",
+    "risk_class",
+    "action_digest",
+    "issued_at",
+    "expires_at",
+    "max_uses",
+    "status"
+  ],
+  "properties": {
+    "approval_id": { "type": "string", "minLength": 1 },
+    "requester_id": { "type": "string", "minLength": 1 },
+    "approver_id": { "type": "string", "minLength": 1 },
+    "capability_id": { "type": "string", "minLength": 1 },
+    "contract_version": { "type": "string", "minLength": 1 },
+    "tenant_id": { "type": ["string", "null"] },
+    "environment": { "type": "string", "minLength": 1 },
+    "target": { "type": "object" },
+    "normalized_parameters": { "type": "object" },
+    "expected_side_effects": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "risk_class": { "enum": ["W1", "W2", "W3"] },
+    "action_digest": { "type": "string", "minLength": 32 },
+    "change_reference": { "type": ["string", "null"] },
+    "preconditions": { "type": "array", "items": { "type": "string" } },
+    "issued_at": { "type": "string", "format": "date-time" },
+    "expires_at": { "type": "string", "format": "date-time" },
+    "max_uses": { "type": "integer", "minimum": 1 },
+    "status": { "enum": ["approved", "revoked", "expired", "consumed"] },
+    "signature": { "type": ["string", "null"] }
+  }
+}
+

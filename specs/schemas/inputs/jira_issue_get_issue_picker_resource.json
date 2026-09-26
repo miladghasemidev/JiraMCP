@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jira-mcp.invalid/schemas/input/jira_issue_get_issue_picker_resource.1.0.0.json",
+  "title": "Input for jira_issue_get_issue_picker_resource",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "environment",
+    "target_id",
+    "trace_id"
+  ],
+  "properties": {
+    "environment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "test",
+        "production"
+      ]
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{8,128}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "query": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "current_jql": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "current_issue_key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "current_project_id": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "show_sub_tasks": {
+      "type": "boolean"
+    },
+    "show_sub_task_parent": {
+      "type": "boolean"
+    }
+  }
+}

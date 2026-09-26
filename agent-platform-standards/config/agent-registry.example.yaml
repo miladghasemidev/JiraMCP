@@ -1,0 +1,373 @@
+registry_version: "1.0.0"
+generated_at: "2026-09-03T00:00:00Z"
+
+components:
+  - id: "agent.sql_dba"
+    kind: "agent"
+    name: "SQL DBA Agent"
+    description: "Analyzes SQL Server problems and produces evidence-backed safe instructions without executing database changes."
+    version: "1.0.0"
+    owner:
+      team: "database-platform-team"
+      technical_contact: "database-platform-oncall"
+      backup_team: "platform-operations"
+    status: "active"
+    risk_class: "R2"
+    data_classifications: ["internal", "production-diagnostics"]
+    environments: ["test", "production"]
+    deployments:
+      - deployment_id: "sql-dba-agent-prod-01"
+        environment: "production"
+        endpoint_ref: null
+        region_or_zone: "on-prem-primary"
+        status: "active"
+    source_ref: "repository://agents/sql-dba"
+    artifact_digest: "sha256:<replace-with-real-release-digest>"
+    manifest_ref: "agents/sql-dba/agent.yaml"
+    policy_refs: ["policy.sql_diagnostics_read_only@1.0.0"]
+    evaluation_refs: ["eval.sql_dba_agent@1.0.0"]
+    observability_refs: ["dashboard.sql_dba_agent"]
+    permissions: ["sqlserver.production.diagnostics.read"]
+    metadata:
+      autonomy_level: "supervised_agent"
+      max_tool_calls: 12
+      max_execution_seconds: 180
+      channels: ["web", "cli"]
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: "runbook://agents/sql-dba/disable"
+
+  - id: "runtime.enterprise_agent"
+    kind: "runtime"
+    name: "Enterprise Agent Runtime"
+    description: "Runs registered agents with approved sandbox, context, capability, and tracing controls."
+    version: "1.0.0"
+    owner:
+      team: "agent-platform-team"
+      technical_contact: "agent-platform-oncall"
+      backup_team: "platform-operations"
+    status: "active"
+    risk_class: "W2"
+    data_classifications: ["internal", "production-diagnostics"]
+    environments: ["test", "production"]
+    deployments: []
+    source_ref: "repository://platform/agent-runtime"
+    artifact_digest: "sha256:<replace-with-real-release-digest>"
+    manifest_ref: "runtime/deployment.yaml"
+    policy_refs: ["policy.runtime_base@1.0.0"]
+    evaluation_refs: ["eval.runtime_isolation@1.0.0"]
+    observability_refs: ["dashboard.agent_runtime"]
+    permissions: []
+    metadata: {}
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: "runbook://runtime/rollback"
+
+  - id: "model.local_primary"
+    kind: "model"
+    name: "Approved local primary model"
+    description: "Primary locally hosted model approved for bounded enterprise agent reasoning."
+    version: "1.0.0"
+    owner:
+      team: "agent-platform-team"
+      technical_contact: "model-platform-oncall"
+      backup_team: "platform-operations"
+    status: "active"
+    risk_class: "R2"
+    data_classifications: ["internal", "production-diagnostics"]
+    environments: ["test", "production"]
+    deployments: []
+    source_ref: "model-inventory://local/primary"
+    artifact_digest: "sha256:<replace-with-real-model-digest>"
+    manifest_ref: "models/local-primary.yaml"
+    policy_refs: ["policy.model_data_access@1.0.0"]
+    evaluation_refs: ["eval.local_primary_model@1.0.0"]
+    observability_refs: ["dashboard.local_model"]
+    permissions: []
+    metadata:
+      hosting_boundary: "on-prem"
+      intended_tasks: ["diagnosis", "technical-instruction-generation"]
+      fallback_policy: "stop-if-no-approved-compatible-model"
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: "runbook://models/local-primary/disable"
+
+  - id: "gateway.enterprise_mcp"
+    kind: "gateway"
+    name: "Enterprise MCP Gateway"
+    description: "Authorizes, routes, limits, audits, and brokers scoped access for registered MCP capabilities."
+    version: "1.0.0"
+    owner:
+      team: "agent-platform-team"
+      technical_contact: "agent-platform-oncall"
+      backup_team: "platform-operations"
+    status: "active"
+    risk_class: "W2"
+    data_classifications: ["internal"]
+    environments: ["test", "production"]
+    deployments: []
+    source_ref: "repository://platform/mcp-gateway"
+    artifact_digest: "sha256:<replace-with-real-release-digest>"
+    manifest_ref: "gateway/deployment.yaml"
+    policy_refs: ["policy.gateway_base@1.0.0"]
+    evaluation_refs: ["eval.gateway_security@1.0.0"]
+    observability_refs: ["dashboard.mcp_gateway"]
+    permissions: []
+    metadata: {}
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: "runbook://gateway/rollback"
+
+  - id: "mcp.sqlserver"
+    kind: "mcp_server"
+    name: "SQL Server MCP"
+    description: "Provides bounded SQL Server diagnostic capabilities through the enterprise MCP gateway."
+    version: "1.0.0"
+    owner:
+      team: "database-platform-team"
+      technical_contact: "database-platform-oncall"
+      backup_team: "agent-platform-team"
+    status: "active"
+    risk_class: "R2"
+    data_classifications: ["production-diagnostics"]
+    environments: ["test", "production"]
+    deployments: []
+    source_ref: "repository://mcp/sqlserver"
+    artifact_digest: "sha256:<replace-with-real-release-digest>"
+    manifest_ref: "mcp/sqlserver/server.yaml"
+    policy_refs: ["policy.sql_diagnostics_read_only@1.0.0"]
+    evaluation_refs: ["eval.sqlserver_mcp@1.0.0"]
+    observability_refs: ["dashboard.sqlserver_mcp"]
+    permissions: ["sqlserver.production.diagnostics.read"]
+    metadata:
+      supported_backend_versions: ["2019", "2022", "2025"]
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: "runbook://mcp/sqlserver/disable"
+
+  - id: "tool.sqlserver_get_blocking_context"
+    kind: "tool"
+    name: "Get SQL Server blocking context"
+    description: "Collects a bounded read-only blocking snapshot for diagnosis."
+    version: "1.0.0"
+    owner:
+      team: "database-platform-team"
+      technical_contact: "database-platform-oncall"
+      backup_team: "agent-platform-team"
+    status: "active"
+    risk_class: "R2"
+    data_classifications: ["production-diagnostics"]
+    environments: ["test", "production"]
+    deployments: []
+    source_ref: "repository://mcp/sqlserver/tools/get-blocking-context"
+    artifact_digest: "sha256:<replace-with-real-release-digest>"
+    manifest_ref: "mcp/sqlserver/tools/get_blocking_context.yaml"
+    policy_refs: ["policy.sql_diagnostics_read_only@1.0.0"]
+    evaluation_refs: ["eval.sqlserver_blocking_tool@1.0.0"]
+    observability_refs: ["dashboard.sqlserver_mcp"]
+    permissions: ["sqlserver.production.diagnostics.read"]
+    metadata:
+      capability_id: "sqlserver.get_blocking_context"
+      max_inline_bytes: 65536
+      max_records: 200
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: "runbook://mcp/sqlserver/disable-tool"
+
+  - id: "skill.sqlserver_diagnose_blocking"
+    kind: "skill"
+    name: "Diagnose SQL Server blocking"
+    description: "Performs an evidence-first read-only blocking investigation and produces safe unexecuted recommendations."
+    version: "1.0.0"
+    owner:
+      team: "database-platform-team"
+      technical_contact: "database-platform-oncall"
+      backup_team: "agent-platform-team"
+    status: "active"
+    risk_class: "R2"
+    data_classifications: ["production-diagnostics"]
+    environments: ["test", "production"]
+    deployments: []
+    source_ref: "repository://skills/sqlserver-blocking-analysis"
+    artifact_digest: "sha256:<replace-with-real-release-digest>"
+    manifest_ref: "skills/sqlserver-blocking-analysis/SKILL.md"
+    policy_refs: ["policy.sql_diagnostics_read_only@1.0.0"]
+    evaluation_refs: ["eval.sqlserver_blocking_skill@1.0.0"]
+    observability_refs: ["dashboard.sql_dba_agent"]
+    permissions: ["sqlserver.production.diagnostics.read"]
+    metadata: {}
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: "runbook://skills/sqlserver-blocking/disable"
+
+  - id: "backend.sqlserver_production"
+    kind: "backend"
+    name: "Production SQL Server estate"
+    description: "Registered production SQL Server targets accessible only through approved scoped capabilities."
+    version: "1.0.0"
+    owner:
+      team: "database-platform-team"
+      technical_contact: "database-platform-oncall"
+      backup_team: "platform-operations"
+    status: "active"
+    risk_class: "W3"
+    data_classifications: ["production", "restricted"]
+    environments: ["production"]
+    deployments: []
+    source_ref: "inventory://sqlserver/production"
+    artifact_digest: null
+    manifest_ref: "inventory/sqlserver-production.yaml"
+    policy_refs: ["policy.sql_target_access@1.0.0"]
+    evaluation_refs: []
+    observability_refs: ["dashboard.sqlserver_estate"]
+    permissions: []
+    metadata:
+      supported_versions: ["2019", "2022", "2025"]
+    created_at: "2026-09-03T00:00:00Z"
+    updated_at: "2026-09-03T00:00:00Z"
+    last_verified_at: "2026-09-03T00:00:00Z"
+    review_date: "2026-12-01"
+    deprecated_by: null
+    rollback_ref: null
+
+relationships:
+  - id: "rel.agent_sql_dba.runs_on_runtime"
+    source_id: "agent.sql_dba"
+    relationship_type: "runs_on"
+    target_id: "runtime.enterprise_agent"
+    environment: "production"
+    target_scope: null
+    required: true
+    origin: "both"
+    status: "active"
+    version_constraint: ">=1.0.0 <2.0.0"
+    access_mode: "none"
+    data_classifications: ["production-diagnostics"]
+    evidence_ref: "deployment://sql-dba-agent-prod-01"
+    first_observed_at: "2026-09-03T00:00:00Z"
+    last_observed_at: "2026-09-03T00:00:00Z"
+    observation_count: 1
+
+  - id: "rel.agent_sql_dba.uses_primary_model"
+    source_id: "agent.sql_dba"
+    relationship_type: "uses"
+    target_id: "model.local_primary"
+    environment: "production"
+    target_scope: null
+    required: true
+    origin: "both"
+    status: "active"
+    version_constraint: "=1.0.0"
+    access_mode: "none"
+    data_classifications: ["production-diagnostics"]
+    evidence_ref: "trace-query://sql-dba-agent/models/30d"
+    first_observed_at: "2026-09-03T00:00:00Z"
+    last_observed_at: "2026-09-03T00:00:00Z"
+    observation_count: 1
+
+  - id: "rel.agent_sql_dba.routes_gateway"
+    source_id: "agent.sql_dba"
+    relationship_type: "routes_through"
+    target_id: "gateway.enterprise_mcp"
+    environment: "production"
+    target_scope: null
+    required: true
+    origin: "both"
+    status: "active"
+    version_constraint: ">=1.0.0 <2.0.0"
+    access_mode: "mixed"
+    data_classifications: ["production-diagnostics"]
+    evidence_ref: "trace-query://sql-dba-agent/gateway/30d"
+    first_observed_at: "2026-09-03T00:00:00Z"
+    last_observed_at: "2026-09-03T00:00:00Z"
+    observation_count: 1
+
+  - id: "rel.agent_sql_dba.uses_blocking_skill"
+    source_id: "agent.sql_dba"
+    relationship_type: "uses"
+    target_id: "skill.sqlserver_diagnose_blocking"
+    environment: "production"
+    target_scope: null
+    required: false
+    origin: "declared"
+    status: "active"
+    version_constraint: ">=1.0.0 <2.0.0"
+    access_mode: "read"
+    data_classifications: ["production-diagnostics"]
+    evidence_ref: "manifest://agents/sql-dba/skills"
+    first_observed_at: null
+    last_observed_at: null
+    observation_count: 0
+
+  - id: "rel.blocking_skill.requires_blocking_tool"
+    source_id: "skill.sqlserver_diagnose_blocking"
+    relationship_type: "requires"
+    target_id: "tool.sqlserver_get_blocking_context"
+    environment: "production"
+    target_scope: null
+    required: true
+    origin: "declared"
+    status: "active"
+    version_constraint: ">=1.0.0 <2.0.0"
+    access_mode: "read"
+    data_classifications: ["production-diagnostics"]
+    evidence_ref: "skill://sqlserver-blocking-analysis/SKILL.md"
+    first_observed_at: null
+    last_observed_at: null
+    observation_count: 0
+
+  - id: "rel.sqlserver_mcp.provides_blocking_tool"
+    source_id: "mcp.sqlserver"
+    relationship_type: "provides"
+    target_id: "tool.sqlserver_get_blocking_context"
+    environment: "production"
+    target_scope: null
+    required: true
+    origin: "both"
+    status: "active"
+    version_constraint: "=1.0.0"
+    access_mode: "read"
+    data_classifications: ["production-diagnostics"]
+    evidence_ref: "manifest://mcp/sqlserver/tools"
+    first_observed_at: "2026-09-03T00:00:00Z"
+    last_observed_at: "2026-09-03T00:00:00Z"
+    observation_count: 1
+
+  - id: "rel.sqlserver_mcp.connects_backend"
+    source_id: "mcp.sqlserver"
+    relationship_type: "connects_to"
+    target_id: "backend.sqlserver_production"
+    environment: "production"
+    target_scope:
+      allowlist: "registered-sqlserver-instances"
+    required: true
+    origin: "both"
+    status: "active"
+    version_constraint: null
+    access_mode: "read"
+    data_classifications: ["production-diagnostics"]
+    evidence_ref: "trace-query://sqlserver-mcp/backends/30d"
+    first_observed_at: "2026-09-03T00:00:00Z"
+    last_observed_at: "2026-09-03T00:00:00Z"
+    observation_count: 1

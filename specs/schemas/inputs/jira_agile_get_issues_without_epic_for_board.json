@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jira-mcp.invalid/schemas/input/jira_agile_get_issues_without_epic_for_board.1.0.0.json",
+  "title": "Input for jira_agile_get_issues_without_epic_for_board",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "environment",
+    "target_id",
+    "trace_id",
+    "board_id"
+  ],
+  "properties": {
+    "environment": {
+      "type": "string",
+      "enum": [
+        "development",
+        "test",
+        "production"
+      ]
+    },
+    "target_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "trace_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{8,128}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "tenant_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9._:-]{1,128}$"
+    },
+    "board_id": {
+      "type": [
+        "string",
+        "integer"
+      ],
+      "minLength": 1,
+      "maxLength": 255
+    },
+    "start_at": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "max_results": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "default": 50
+    },
+    "jql": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "validate_query": {
+      "type": "boolean"
+    },
+    "fields": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "expand": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    }
+  }
+}

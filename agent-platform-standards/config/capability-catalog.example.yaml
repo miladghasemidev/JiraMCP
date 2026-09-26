@@ -1,0 +1,85 @@
+catalog_version: "1.0.0"
+generated_at: "2026-09-03T00:00:00Z"
+
+capabilities:
+  - capability_id: "sqlserver.get_blocking_context"
+    registry_component_id: "tool.sqlserver_get_blocking_context"
+    version: "1.0.0"
+    artifact_type: "tool"
+    title: "Get SQL Server blocking context"
+    description: >-
+      Collects a bounded, read-only snapshot of blocking chains, sessions,
+      requests, transaction age, waits, and query identifiers for diagnosis.
+    domains: ["sqlserver", "database-operations"]
+    intents: ["inspect blocking", "diagnose lock waits"]
+    positive_cues:
+      - "The user asks which session is the root blocker."
+      - "The user asks for evidence about SQL Server blocking."
+    negative_cues:
+      - "The user asks to kill a session or change database state."
+      - "The user asks for a complete diagnostic conclusion; select the blocking-analysis skill."
+    risk_class: "R2"
+    side_effects: []
+    permissions: ["sqlserver.production.diagnostics.read"]
+    approval_class: null
+    supported_targets:
+      - product: "Microsoft SQL Server"
+        versions: ["2019", "2022", "2025"]
+        environments: ["test", "production"]
+        limitations:
+          - "Requires VIEW SERVER STATE or a least-privilege equivalent capability."
+    input_summary: "Explicit instance ID; optional database ID; bounded sample options."
+    output_summary: "Blocking graph and evidence, inline when small or by result reference."
+    limits:
+      max_seconds: 15
+      max_inline_bytes: 65536
+      max_records: 200
+      max_calls: 1
+      cost_class: "low"
+      latency_class: "interactive"
+    owner: "database-platform-team"
+    status: "active"
+    definition_locator: "mcp://sqlserver/tools/get_blocking_context"
+    deprecated_by: null
+    review_date: "2026-12-01"
+    tags: ["read-only", "evidence", "production-diagnostics"]
+
+  - capability_id: "sqlserver.diagnose_blocking"
+    registry_component_id: "skill.sqlserver_diagnose_blocking"
+    version: "1.0.0"
+    artifact_type: "skill"
+    title: "Diagnose SQL Server blocking"
+    description: >-
+      Performs an evidence-first, read-only blocking investigation and produces
+      findings plus separately reviewable safe remediation instructions.
+    domains: ["sqlserver", "database-operations"]
+    intents: ["diagnose blocking incident"]
+    positive_cues:
+      - "The user asks for the cause and impact of a SQL Server blocking incident."
+    negative_cues:
+      - "The user only asks for the current active-session count."
+      - "The user asks to execute KILL or any state-changing remediation."
+    risk_class: "R2"
+    side_effects: []
+    permissions: ["sqlserver.production.diagnostics.read"]
+    approval_class: null
+    supported_targets:
+      - product: "Microsoft SQL Server"
+        versions: ["2019", "2022", "2025"]
+        environments: ["test", "production"]
+        limitations: []
+    input_summary: "Explicit instance ID and incident time context."
+    output_summary: "Evidence-backed diagnosis, uncertainty, impact, and unexecuted safe instructions."
+    limits:
+      max_seconds: 120
+      max_inline_bytes: 32768
+      max_records: null
+      max_calls: 8
+      cost_class: "medium"
+      latency_class: "interactive"
+    owner: "database-platform-team"
+    status: "active"
+    definition_locator: "skills/sqlserver-blocking-analysis/SKILL.md"
+    deprecated_by: null
+    review_date: "2026-12-01"
+    tags: ["read-only", "skill", "evidence-first"]

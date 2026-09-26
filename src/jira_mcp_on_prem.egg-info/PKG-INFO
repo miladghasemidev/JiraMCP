@@ -1,0 +1,17 @@
+Metadata-Version: 2.4
+Name: jira-mcp-on-prem
+Version: 1.0.0
+Summary: Policy-controlled MCP server for the exact approved Jira on-premises capability inventory.
+Requires-Python: >=3.12
+Requires-Dist: httpx==0.28.1
+Requires-Dist: jsonschema==4.26.0
+Requires-Dist: mcp==2.2.0
+Requires-Dist: pydantic==2.13.5
+Provides-Extra: dev
+Requires-Dist: mypy==2.3.1; extra == "dev"
+Requires-Dist: openpyxl==3.1.5; extra == "dev"
+Requires-Dist: pytest==9.1.1; extra == "dev"
+Requires-Dist: pytest-asyncio==1.4.0; extra == "dev"
+Requires-Dist: respx==0.23.1; extra == "dev"
+Requires-Dist: ruff==0.16.7; extra == "dev"
+Requires-Dist: types-jsonschema==4.26.0.20260518; extra == "dev"
