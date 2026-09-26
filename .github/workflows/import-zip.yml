@@ -1,0 +1,35 @@
+name: Import JiraMCP ZIP
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: contains(github.event.head_commit.message, '[bootstrap-import]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify and extract exact ZIP contents
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp .upload/jira-mcp-codex-ready.zip /tmp/jira-mcp-codex-ready.zip
+          echo "cddf9c7a32606309eac3b56b89c0de70a0560573a0f5a869d513e34cf62b4a53  /tmp/jira-mcp-codex-ready.zip" | sha256sum -c -
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          unzip -q /tmp/jira-mcp-codex-ready.zip -d .
+          count="$(find . -type f ! -path './.git/*' | wc -l | tr -d ' ')"
+          test "$count" = "387"
+      - name: Commit imported repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Import complete JiraMCP contents from supplied ZIP"
+          git push origin HEAD:main
